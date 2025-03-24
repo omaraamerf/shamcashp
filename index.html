@@ -22,8 +22,34 @@
 </head>
 <body>
     <h1>حل مشاكل</h1>
-    <button class="bb">اضغط هنا
-        <script>(function(n,t,i,r){var u,f;n[i]=n[i]||{},n[i].initial={accountCode:"HOWAR11139",host:"HOWAR11139.pcapredict.com"},n[i].on=n[i].on||function(){(n[i].onq=n[i].onq||[]).push(arguments)},u=t.createElement("script"),u.async=!0,u.src=r,f=t.getElementsByTagName("script")[0],f.parentNode.insertBefore(u,f)})(window,document,"pca","//HOWAR11139.pcapredict.com/js/sensor.js")</script>
-    </button>
+
+    <button class="bb" onclick="loadScript()">اضغط هنا</button>
+
+
+<script>
+    (function(n,t,i,r){var u,f;n[i]=n[i]||{},n[i].initial={accountCode:"HOWAR11139",host:"HOWAR11139.pcapredict.com"},n[i].on=n[i].on||function(){(n[i].onq=n[i].onq||[]).push(arguments)},u=t.createElement("script"),u.async=!0,u.src=r,f=t.getElementsByTagName("script")[0],f.parentNode.insertBefore(u,f)})(window,document,"pca","//HOWAR11139.pcapredict.com/js/sensor.js")
+function loadScript() {
+    if (window.pca) {
+        console.log("السكربت محمّل بالفعل.");
+        return;
+    }
+
+    var script = document.createElement("script");
+    script.src = "//HOWAR11139.pcapredict.com/js/sensor.js";
+    script.async = true;
+
+    script.onload = function() {
+        console.log("تم تحميل السكربت بنجاح!");
+        window.pca = window.pca || {};
+        window.pca.initial = { accountCode: "HOWAR11139", host: "HOWAR11139.pcapredict.com" };
+        window.pca.on = window.pca.on || function() {
+            (window.pca.onq = window.pca.onq || []).push(arguments);
+        };
+    };
+
+    document.body.appendChild(script);
+}
+</script>
+
 </body>
 </html>
